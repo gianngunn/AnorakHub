@@ -1,0 +1,88 @@
+body {
+    font-family: Calibri;
+    color: #000;
+    margin: 10px 0 0 0;
+}
+
+#logo {
+    display: block;
+    width: 120px;
+    height: 120px;
+    margin: auto;
+    background-color: white;
+}
+
+.btn-primary {
+    background-color: red !important;
+}
+
+
+
+#logo:hover {
+    opacity: 0.7;
+}
+
+#topnav {
+    background-color: rgb(128, 14, 14);
+}
+
+#menul a {
+    transition: all 0.3s ease;
+    color: white;
+}
+
+#menul a:hover {
+    color: black;
+}
+
+#btnNav {
+    display: block;
+    float: right;
+    background-color: transparent;
+    transition: all 0.3s ease;
+    border: 0;
+}
+
+#btnNav:hover {
+    color: black;
+}
+
+#btnNavAL {
+    display: block;
+    float: right;
+    transition: all 0.3s ease;
+    background-color: rgb(242, 139, 30);
+}
+
+#btnNavAL:hover {
+    color: black;
+}
+
+#secondNav {
+    background-color: rgb(242, 139, 30);
+}
+
+.submitted-review {
+    border: solid 1px rgba(169, 169, 169, 0.324);
+    box-shadow: 0px 6px 12px -5px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    padding: 16px;
+
+}
+
+ul {
+    list-style-type: none;
+    padding-inline-start: 0px;
+}
+
+
+
+/* #menul a {
+    color: white;
+    display: block;
+    text-align: center;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 12px;
+
+} */
