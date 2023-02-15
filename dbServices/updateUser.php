@@ -10,23 +10,23 @@ $collection = $db->users;#                                                mallon
 if (isset($_SESSION['isAdmin']) == 'yes'){
 	
        
-        $uemail = $_POST['uemail'];
-        $password = $_POST['password'];
-        $cursor = $collection->find(array("uemail" => $uemail));
+        $uemail = $_GET['uemail'];
         
-        $cursor = $collection->updateOne(['userID'=>$userID],
+        
+        
+        $cursor = $collection->updateOne(['uemail'=>$uemail],
         ['$set'=>
-            ['firstName'=> $firstName,
-            'lastName'=> $lastName,
-            'phone'=> $phone,
-            'address'=> $address,
-            'city'=> $city,
-            'zip'=> $zip,
-            'age'=> $age
+            ['firstName'=> $_POST['firstName'],
+            'lastName'=> $_POST['lastName'],
+            'phone'=> $_POST['phone'],
+            'address'=> $_POST['address'],
+            'city'=> $_POST['city'],
+            'zip'=> $_POST['zip'],
+            'age'=> $_POST['age']
             ]
         ]);
     
-header();
+header('Location: ../editUsersPage.php');
         
 
     

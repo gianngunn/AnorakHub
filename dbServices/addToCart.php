@@ -8,12 +8,12 @@ session_start();
 
     $user = $collection->find(["uemail" => $_SESSION['uemail']]);
     $cursor = $collection->find();
-    $favArray = array();
+    $cartArray = array();
     $key=0;
     foreach($user as $document){
-        array_push($favArray, $document['favoriteItems']);
+        array_push($cartArray, $document['cartItems']);
     };
-    foreach($favArray[0] as $t){
+    foreach($cartArray[0] as $t){
         print_r($t);
         if($t==$pCode){
             $key=1;
@@ -21,12 +21,12 @@ session_start();
     };
 
     if($key==0){
-       $collection->updateOne(['uemail'=>$_SESSION['uemail']],['$push'=> ['favoriteItems'=>$pCode]]);
+       $collection->updateOne(['uemail'=>$_SESSION['uemail']],['$push'=> ['cartItems'=>$pCode]]);
         header("Location:../singleProduct.php?pCode=$pCode");
 }else{
 ?><script>
 //thelei ftiajimo design
-alert('favorite exists')
+alert('item exists')
 window.location.replace('../singleProduct.php?pCode=<?=$pCode?>');
 </script><?php 
     }
