@@ -166,57 +166,55 @@ require '../vendor/autoload.php';
 
 $m = new MongoDB\Client ("mongodb://127.0.0.1/");
 $db = $m->AnorakHub;
-$collection = $db->users;
+$collection = $db->products;
 
 
-$uemail=$_GET['uemail'];
-$cursor = $collection -> find(['uemail' => $uemail]);
+$productCode=$_GET['productCode'];
+$cursor = $collection -> find(['productCode' => $productCode]);
 
 foreach ($cursor as $document) { 
-    $firstName = $document["firstName"]; 
-    $lastName = $document["lastName"];
-    $age = $document["age"];
-    $phone = $document["phone"];
-    $city = $document["city"];
-    $address = $document["address"];
-    $zip = $document["zip"];
+    $name = $document["name"]; 
+    $price = $document["price"];
+    $stock = $document["stock"];
+    $description = $document["description"];
+    $image = $document["image"];
+    
+    $productIs = $document["productIs"];
 }
 
 ?>
 
 
 
-    <div id="editUserModal" class="container">
-        <form action="../dbServices/updateUser.php?uemail=<?=$uemail?>" method="post">
+    <div id="editProductForm" class="container">
+        <form action="../dbServices/updateProduct.php?productCode=<?=$productCode?>" method="post">
             <div class="row">
                 <div class="col-4">
-                    <h1>Επεξεργασία Χρήστη</h1>
+                    <h1>Επεξεργασία Προϊόντος</h1>
 
                     <hr>
-                    <label for="firstName"><b>Όνομα</b></label>
-                    <input type="text" value="<?=$firstName?>" name="firstName" required>
+                    <label for="name"><b>Όνομα</b></label>
+                    <input type="text" value="<?=$name?>" name="name" required>
 
-                    <label for="lastName"><b>Επώνυμο</b></label>
-                    <input type="text" value="<?=$lastName?>" name="lastName" required>
+                    <label for="price"><b>Τιμή</b></label>
+                    <input type="text" value="<?=$price?>" name="price" required>
 
-                    <label for="age"><b>Ηλικία</b></label>
-                    <input type="text" value="<?=$age?>" name="age" required>
+                    <label for="stock"><b>Απόθεμα</b></label>
+                    <input type="text" value="<?=$stock?>" name="stock" required>
 
-                    <label for="phone"><b>Τηλέφωνο</b></label>
-                    <input type="text" value="<?=$phone?>" name="phone" required>
+                    <label for="description"><b>Περιγραφή</b></label>
+                    <input type="text" value="<?=$description?>" name="description" required>
 
-                    <label for="city"><b>Πόλη</b></label>
-                    <input type="text" value="<?=$city?>" name="city" required>
+                    <label for="image"><b>Εικόνα</b></label>
+                    <input type="text" value="<?=$image?>" name="image" required>
 
-                    <label for="address"><b>Οδός</b></label>
-                    <input type="text" value="<?=$address?>" name="address" required>
 
-                    <label for="zip"><b>TK</b></label>
-                    <input type="text" value="<?=$zip?>" name="zip" required>
+                    <label for="productIs"><b>Κατηγορία</b></label>
+                    <input type="text" value="<?=$productIs?>" name="productIs" required>
 
 
                     <div class="clearfix">
-                        <button type="button" href="../editUsersPage.php" class="cancelbtn">Cancel</button>
+                        <a href="../editProductPage.php" class="cancelbtn">Cancel</a>
                         <button type="submit" class="updatebtn">Ενημέρωση</button>
                     </div>
                 </div>

@@ -35,7 +35,7 @@ if(isset($_SESSION['isAdmin'])){
                 <div class="col-4">
                     <div class="row align-items-center">
                         <div class="col-auto">
-                            <a href="#" title="Cart"><i class="fa fa-shopping-cart"></i></a>
+                            <a href="./cart.php" title="Cart"><i class="fa fa-shopping-cart"></i></a>
                         </div>
                         <div class="col-auto px-0">
                             <a onclick="document.getElementById('searchModal').style.display='block'" title="Search"><i
@@ -114,7 +114,8 @@ if(isset($_SESSION['isAdmin'])){
                 <div class="col-4">
                     <div class="row align-items-center">
                         <div class="col-auto">
-                            <a href="#" title="Cart"><i class="fa fa-shopping-cart"></i></a>
+                            <a href="./cart.php?uemail=<?=$_SESSION['uemail']?>" title="Cart"><i
+                                    class="fa fa-shopping-cart"></i></a>
                         </div>
                         <div class="col-auto px-0">
                             <a onclick="document.getElementById('searchModal').style.display='block'" title="Search"><i
@@ -188,7 +189,8 @@ else{
                 <div class="col-4">
                     <div class="row align-items-center">
                         <div class="col-auto">
-                            <a href="#" title="Cart"><i class="fa fa-shopping-cart"></i></a>
+                            <a href="./cart.php?uemail=<?$_SESSION['uemail']?>" title="Cart"><i
+                                    class="fa fa-shopping-cart"></i></a>
                         </div>
                         <div class="col-auto px-0">
                             <a onclick="document.getElementById('searchModal').style.display='block'" title="Search"><i
