@@ -7,7 +7,7 @@ include 'components/header.php';
 require 'components/searchModal.php';
 require 'vendor/autoload.php';
 require 'components/addUserModal.php';
-require 'components/editUserModal.php';
+
 
 
 $m = new MongoDB\Client ("mongodb://127.0.0.1/");
@@ -79,7 +79,7 @@ $m = new MongoDB\Client ("mongodb://127.0.0.1/");
                                     <td><?=$document['phone']?></td>
                                     <td><?=$document['age']?></td>
                                     <td><a type="button"
-                                            onclick="document.getElementById('editUserModal').style.display='block'"
+                                            href="components/editUserModal.php?uemail=<?=$document['uemail']?>"
                                             class="m-1 viewBtn btn btn-sm btn-secondary"
                                             title="Επεξεργασία Χρήστη">Edit</a>
                                         <a type="button"

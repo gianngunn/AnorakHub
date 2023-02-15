@@ -84,7 +84,7 @@ $m = new MongoDB\Client ("mongodb://127.0.0.1/");
                                     <td><?=$document['stock']?></td>
                                     <td><?=$document['productIs']?></td>
                                     <td><a type="button"
-                                            onclick="document.getElementById('editProductModal').style.display='block'"
+                                            href="components/editProductForm.php?productCode=<?=$document['productCode']?>"
                                             class="m-1 viewBtn btn btn-sm btn-secondary"
                                             title="Επεξεργασία Χρήστη">Edit</a>
                                         <a type="button" href="#" class="m-1 deleteBtn btn btn-sm btn-danger"

@@ -60,7 +60,7 @@ foreach ($cursor as $document) {
                     #find gia ta favorites   
                     ?><a href="dbServices/addFavorites.php?pCode=<?=$pCode?>" class="btn btn-primary">Add to
                     favorite</a>
-                <a href="#" class="btn btn-primary">Add to cart</a>
+                <a href="dbServices/addToCart.php?pCode=<?=$pCode?>" class="btn btn-primary">Add to cart</a>
                 <?php
                 }else{
                     ?>
