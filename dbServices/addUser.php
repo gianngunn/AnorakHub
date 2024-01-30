@@ -5,7 +5,7 @@ require '../vendor/autoload.php';
 
 $m = new MongoDB\Client ("mongodb://127.0.0.1/");
 $db = $m->AnorakHub;
-$collection = $db->users;#                                                mallon auto einai perito gt to tsekarei i forma
+$collection = $db->users; 
       
         $uemail = $_POST['uemail'];
         $password = $_POST['password'];
@@ -39,8 +39,4 @@ $collection = $db->users;#                                                mallon
             header('Location:../editUsersPage.php');
         }  
     
-   
-    
-	
-
 ?>

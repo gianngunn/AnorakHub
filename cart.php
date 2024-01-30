@@ -77,7 +77,7 @@ foreach($user as $document){
 								echo '<div>';
 									
 									echo '<h5 class="my-2">'.$name.'</h5>';
-						
+                                    #document.location.href='dbServices/removeCartItem.php
 									echo '<button class="btn btn-sm btn-danger removeitem" id="'.$item.'">Remove</button>';	
 								echo '</div>';
 								echo '<p class="text-muted">'.$price.'€</p>';

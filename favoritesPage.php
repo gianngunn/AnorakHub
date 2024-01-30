@@ -97,7 +97,7 @@ if($f==1){
                  foreach($finalAr as $document){
                 ?>
             <tr>
-                <td src="img/<?=$document["image"]?>"></td>
+                <td><img src="img/<?=$document["image"]?>" width="100" height="100"></td>
                 <td><?=$document["productCode"]?></td>
                 <td><?=$document["name"]?></td>
                 <td><?=$document["price"]?></td>

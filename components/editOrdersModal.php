@@ -166,58 +166,79 @@ require '../vendor/autoload.php';
 
 $m = new MongoDB\Client ("mongodb://127.0.0.1/");
 $db = $m->AnorakHub;
-$collection = $db->users;
+$collection = $db->orders;
 
 
-$uemail=$_GET['uemail'];
-$cursor = $collection -> find(['uemail' => $uemail]);
+$orderNumber = (int)$_GET['orderNumber'];
+$cursor = $collection -> find(['orderNumber' => $orderNumber]);
 
 foreach ($cursor as $document) { 
-    $firstName = $document["firstName"]; 
-    $lastName = $document["lastName"];
-    $age = $document["age"];
+    $uemail = $document['uemail'];
+    $ufname = $document["ufname"]; 
+    $ulname = $document["ulname"];
     $phone = $document["phone"];
     $city = $document["city"];
     $address = $document["address"];
     $zip = $document["zip"];
+    $orderDate = $document["orderDate"];
+    $orderStatus = $document["orderStatus"];
+    $totalPrice = $document["totalPrice"];
+    $productsBought = " ";
+    foreach($document['productsBought'] as $p ){
+        $productsBought .= $p.",";
+    }
 }
+
 
 ?>
 
 
 
-    <div id="editUserModal" class="container">
-        <form action="../dbServices/updateUser.php?uemail=<?=$uemail?>" method="post">
+    <div id="editOrdersModal" class="container">
+        <form action="#" method="post">
             <div class="row">
                 <div class="col-4">
-                    <h1>Επεξεργασία Χρήστη</h1>
+                    <h1>Λεπτομέρειες Παραγγελίας</h1>
 
                     <hr>
-                    <label for="firstName"><b>Όνομα</b></label>
-                    <input type="text" value="<?=$firstName?>" name="firstName" required>
+                    <label for="uemail"><b>Email</b></label>
+                    <input type="text" value="<?=$uemail?>" name="uemail" disabled required>
 
-                    <label for="lastName"><b>Επώνυμο</b></label>
-                    <input type="text" value="<?=$lastName?>" name="lastName" required>
+                    <label for="ufname"><b>Όνομα</b></label>
+                    <input type="text" value="<?=$ufname?>" name="ufname" disabled required>
 
-                    <label for="age"><b>Ηλικία</b></label>
-                    <input type="text" value="<?=$age?>" name="age" required>
+                    <label for="ulname"><b>Επώνυμο</b></label>
+                    <input type="text" value="<?=$ulname?>" name="ulname" disabled required>
 
                     <label for="phone"><b>Τηλέφωνο</b></label>
-                    <input type="text" value="<?=$phone?>" name="phone" required>
+                    <input type="text" value="<?=$phone?>" name="phone" disabled required>
 
                     <label for="city"><b>Πόλη</b></label>
-                    <input type="text" value="<?=$city?>" name="city" required>
+                    <input type="text" value="<?=$city?>" name="city" disabled required>
 
                     <label for="address"><b>Οδός</b></label>
-                    <input type="text" value="<?=$address?>" name="address" required>
+                    <input type="text" value="<?=$address?>" name="address" disabled required>
 
                     <label for="zip"><b>TK</b></label>
-                    <input type="text" value="<?=$zip?>" name="zip" required>
+                    <input type="text" value="<?=$zip?>" name="zip" disabled required>
 
+                    <label for="orderDate"><b>Ημ.Παραγγελίας</b></label>
+                    <input type="text" value="<?=$orderDate?>" name="orderDate" disabled required>
 
+                    <label for="orderNumber"><b>Αρ.Παραγγελίας</b></label>
+                    <input type="text" value="<?=$orderNumber?>" name="orderNumber" disabled required>
+
+                    <label for="productsBought"><b>Προϊόντα</b></label>
+                    <input type="text" value="<?=$productsBought?>" name="productsBought" disabled required>
+
+                    <label for="totalPrice"><b>Σύνολο</b></label>
+                    <input type="text" value="<?=$totalPrice?>" name="totalPrice" disabled required>
+
+                    <label for="orderStatus"><b>Κατ.Παραγγελίας</b></label>
+                    <input type="text" value="<?=$orderStatus?>" name="orderStatus" disabled required>
                     <div class="clearfix">
-                        <a href="../editUsersPage.php" class="cancelbtn">Cancel</a>
-                        <button type="submit" class="updatebtn">Ενημέρωση</button>
+                        <a href="../editOrdersPage.php" class="cancelbtn">Back</a>
+
                     </div>
                 </div>
 

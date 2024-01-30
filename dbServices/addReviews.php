@@ -1,15 +1,17 @@
 <?php
-#elenxos ean uparxei idi review apo ton idio xristi?
 require '../vendor/autoload.php';
     $m = new MongoDB\Client ("mongodb://127.0.0.1/");
     $db = $m->AnorakHub;
     $collection = $db->reviews;
     $pCode = $_GET['pCode'];
+    #print($_POST['inputEmail3']);
+    #print($_POST['inputReview']);
+    #print($_POST['quantity']);
     if(isset($_POST['inputEmail3']) && isset($_POST['inputReview']) && isset($_POST['quantity'])){
         $uemail = $_POST['inputEmail3'];#thelei elenxo gia to email
         $pReview = $_POST['inputReview'];
         $rating = (double)$_POST['quantity'];
-
+        
         $document = array(
             "pCode" => $pCode,
             "rating" => $rating,
@@ -40,5 +42,5 @@ require '../vendor/autoload.php';
     
 
     }
-    header("Location: ./singleProduct.php?pCode=$pCode");
+    header("Location: ../singleProduct.php?pCode=$pCode");
 ?>

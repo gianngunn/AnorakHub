@@ -5,7 +5,7 @@ require '../vendor/autoload.php';
 
 $m = new MongoDB\Client ("mongodb://127.0.0.1/");
 $db = $m->AnorakHub;
-$collection = $db->users;#                                                mallon auto einai perito gt to tsekarei i forma
+$collection = $db->users;
 
 if (isset($_POST['uemail']) && isset($_POST['password']) && isset($_POST['password-repeat'])){
 	if ($_POST['password'] == $_POST['password-repeat']){

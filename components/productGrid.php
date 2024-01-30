@@ -20,7 +20,7 @@ foreach ($cursor as $document) {
         $description = $document["description"];
         $image = $document["image"];
         $productCode = $document["productCode"];
-
+        $rating = $document["rating"];
 
 
    ?>
@@ -30,7 +30,8 @@ foreach ($cursor as $document) {
         <img src="./img/<?=$image?>" class="card-img-top border-bottom" alt="...">
         <div class="card-body bg-light">
             <h5 class="card-title"><?=$name?></h5>
-            <p class="card-text">Test test test</p>
+            <p class="card-text">Rating: <?=$rating?>/5</p>
+            <p class="card-text">Stock: <?=$stock?></p>
             <a href="singleProduct.php?pCode=<?=$productCode?>" class="btn btn-primary">Details</a>
         </div>
     </div>

@@ -19,15 +19,15 @@ if (isset($_POST['uemail']) && isset($_POST['password'])){
                 header("Location:../index.php");
 				
 			}else {
-				?><script>
-alert("Wrong Password!!");
-</script><?php #allazei parathiro kai den emfanizetai mipos thelei mesa sto modal?
+				$msg="Wrong Password!!";
+    			echo "<script>if(confirm('$msg')){document.location.href='../index.php'};</script>";
+				
 			}
 		}
 	}else {
-		?><script>
-alert("user not found");
-</script><?php
+		$msg="user not found!!";
+    	echo "<script>if(confirm('$msg')){document.location.href='../index.php'};</script>";
+				
 	}
 	
 }

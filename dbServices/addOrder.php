@@ -4,23 +4,45 @@ $m = new MongoDB\Client ("mongodb://127.0.0.1/");
 $db = $m->AnorakHub;
 $collection = $db->users;
 $user= $collection->find(['uemail'=>$_POST['uemail']]);
+
+ 
+
 $cartItems = array();
 foreach($user as $document){
     array_push($cartItems, $document['cartItems']);
 };
+
 $orderdItems = array();
 foreach($cartItems[0] as $document){
-    array_push($orderdItems,$document);
+    if($document != ''){
+        array_push($orderdItems,$document);
+    }
+    
 };
+
 $sum = 0;
 $collection = $db->products;
 foreach ($cartItems[0] as $item){
     $pCursor=$collection->find(['productCode'=>$item]);
     foreach ($pCursor as $document) { 
+        $pStock = $document['stock'];
+        $nStock = $pStock - 1;
+        $stock = $nStock;
+        $collection->updateOne(['productCode'=>$item], ['$set'=> ['stock'=>$stock]]);
         $price = $document['price'];
         $sum += $price;
     };
 };
+    $orderNum = 0;
+
+    $collection=$db->orders;
+    $orderN=$collection->find(['orderNumber'=>$orderNum]);
+    
+    while (!$orderN->isDead()){
+        $orderNum = rand(0,99999999999999999);
+        $orderN = $collection->find(['orderNumber'=>$orderNum]);
+    }
+    
     $uemail = $_POST['uemail'];
     $ufname = $_POST['firstName'];
     $ulname = $_POST['lastName'];
@@ -31,6 +53,8 @@ foreach ($cartItems[0] as $item){
     $orderDate = date("Y/m/d");
     $products = $orderdItems;
     $totalPrice = $sum;
+    $orderStatus = "active";
+    $orderNumber = $orderNum;
 
     $document = array(
         "uemail"=>$uemail,
@@ -42,7 +66,9 @@ foreach ($cartItems[0] as $item){
         "zip"=>$zip,
         "orderDate"=>$orderDate,
         "productsBought"=>$products,
-        "totalPrice"=>$totalPrice
+        "totalPrice"=>$totalPrice,
+        "orderStatus"=>$orderStatus,
+        "orderNumber"=>$orderNumber
     );
     $collection=$db->orders;
     $collection->insertOne($document);
@@ -51,6 +77,7 @@ foreach ($cartItems[0] as $item){
     $user= $collection->find(['uemail'=>$uemail]);
     $bought=array();
     foreach($user as $document){
+        #if($document['hasBought']!=' ')
         array_push($bought, $document['hasBought']);
     };
     foreach($cartItems[0] as $ci){
@@ -67,8 +94,8 @@ foreach ($cartItems[0] as $item){
     
     $collection->updateOne(['uemail'=>$uemail],['$set'=>['cartItems'=>['']]]);
     ?><script>
-//thelei ftiajimo design
-alert('i paraggelia kataxorithike')
+alert('i paraggelia kataxorithike');
 window.location.replace('../index.php');
-</script><?php 
+</script>
+<?php 
 ?>

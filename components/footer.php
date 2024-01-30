@@ -15,10 +15,10 @@
 
                     <ul class="list-unstyled mb-0">
                         <li>
-                            <a href="products.php" class="text-dark">Προϊόντα</a>
+                            <a href="index.php" class="text-dark">Προϊόντα</a>
                         </li>
                         <li>
-                            <a href="about.php" class="text-dark">About Us</a>
+                            <a href="aboutus.php" class="text-dark">About Us</a>
                         </li>
                     </ul>
                 </div>

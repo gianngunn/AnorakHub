@@ -25,7 +25,6 @@ session_start();
         header("Location:../singleProduct.php?pCode=$pCode");
 }else{
 ?><script>
-//thelei ftiajimo design
 alert('item exists')
 window.location.replace('../singleProduct.php?pCode=<?=$pCode?>');
 </script><?php 

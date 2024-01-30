@@ -23,15 +23,16 @@ if(isset($_POST['uemail']) && isset($_POST['password'])){
                     
 				
 			}else {
-				?><script>
-alert("Wrong Password!!");
-</script><?php #allazei parathiro kai den emfanizetai mipos thelei mesa sto modal?
+				
+				$msg = "Wrong Password!!";
+				echo "<script>if(confirm('$msg')){document.location.href='../adminPage.php'};</script>";
+
 			}
 		}
 	}else {
-		?><script>
-alert("admin not found");
-</script><?php
+		
+				$msg = "admin not found!!";
+				echo "<script>if(confirm('$msg')){document.location.href='../adminPage.php'};</script>";
 	}
 }
 ?>

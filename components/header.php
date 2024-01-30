@@ -20,6 +20,7 @@
 </head>
 
 <body id="mainPage">
+    <!------------------------------------------------------------------------------------------------------------------------->
     <?php
 if(isset($_SESSION['isAdmin'])){
     if($_SESSION['isAdmin'] == 'yes'){
@@ -51,7 +52,7 @@ if(isset($_SESSION['isAdmin'])){
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                 <a class="dropdown-item" href="./editUsersPage.php">selEpXriston</a>
                                 <a class="dropdown-item" href="./editProductPage.php">selEpProionton</a>
-                                <a class="dropdown-item" href="./wine.php">selEpParaggelion</a>
+                                <a class="dropdown-item" href="./editOrdersPage.php">selEpParaggelion</a>
                             </div>
                         </div>
 
@@ -83,7 +84,7 @@ if(isset($_SESSION['isAdmin'])){
                             </div>
                         </div>
                         <li class="px-5">
-                            <a href="#">About us</a>
+                            <a href="./aboutus.php">About us</a>
                         </li>
 
 
@@ -98,6 +99,7 @@ if(isset($_SESSION['isAdmin'])){
         <div class="\"></div>
         <!--</nav>-->
     </section>
+    <!------------------------------------------------------------------------------------------------------------------------->
     <?php }
 }elseif(isset($_SESSION['uemail'])){
 ?>
@@ -152,11 +154,15 @@ if(isset($_SESSION['isAdmin'])){
                             </div>
                         </li>
                         <li class="px-5">
-                            <a href="#">About us</a>
+                            <a href="./aboutus.php">About us</a>
                         </li>
 
                         <li class="px-5">
                             <a href="./favoritesPage.php">Αγαπημένα</a>
+                        </li>
+
+                        <li class="px-5">
+                            <a href="./myOrdersPage.php">Παραγγελίες μου</a>
                         </li>
                     </ul>
                 </div>
@@ -170,7 +176,7 @@ if(isset($_SESSION['isAdmin'])){
         <!--</nav>-->
     </section>
 
-
+    <!------------------------------------------------------------------------------------------------------------------------->
     <?php
 }
 

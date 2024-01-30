@@ -1,5 +1,3 @@
-<!-- gia to header edw thelei ../ gia tis sundeseis na doule4oun
-mporoume na to bgaloume apo to components an einai-->
 <?php
 session_start();
     //function displayProduct(){
@@ -124,13 +122,13 @@ if($x==0){
         $collection = $db->users;
         $uemail = $_SESSION['uemail'];
         #$cursor = $collection->find(array('uemail' => $uemail));
-        $cursor = $collection->find(array('hasBought' =>$pCode));#den jerw an tsekarei olo to array alla logika to kanei afou douleuei
+        $cursor = $collection->find(array('hasBought' =>$pCode));
         $x=0;
         foreach($cursor as $document){
             if($document['uemail']==$uemail){
                 $x=$pCode;
             }
-        } #den jerw ti ekana alla douleuei mallon
+        } 
         if($x == $pCode){ 
             ?>
 
@@ -140,7 +138,7 @@ if($x==0){
                 <div class="form-group row">
                     <div class="col-sm-12">
                         <label for="inputEmail3" class="col-form-label">Email</label>
-                        <input type="email" class="form-control" disabled name="inputEmail3"
+                        <input type="text" id="inputEmail3" class="form-control" name="inputEmail3"
                             value='<?=$_SESSION['uemail']?>' required>
                     </div>
                 </div>
@@ -173,7 +171,9 @@ if($x==0){
             </form>
         </div>
 
-        <?php
+        <?php 
+        
+        
     }else{
         ?>
         <p>buy the product to review it</p>
